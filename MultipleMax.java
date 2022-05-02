@@ -1,28 +1,30 @@
 package com.bridgelabz.generics;
 
-import java.util.Arrays;
+public class MultipleMax {
 
-public class MultipleMax<T>{
+	public static <T extends Comparable<T>> T allDataPrint(T x,T y,T z,T k) {
 
+		T maximum = x; 
 
-	public static <E> void testMaximum(E[] inputArray){
+		if (y.compareTo(maximum) > 0)
+			maximum = y; 
 
-		System.out.println("Maximum element is: "+inputArray[3]);
+		if (z.compareTo(maximum) > 0)
+			maximum = z; 
+
+                                           if (k.compareTo(maximum) > 0)
+			maximum = k; 
+		System.out.println("Maximum of three is: "+maximum);
+
+		return maximum; 
 	}
 
 	public static void main(String[] args) {
-		Integer[] a= {8,4,5,6};
-		Arrays.sort(a);
-		MultipleMax.testMaximum(a);
 
-		String[] c = {"Apple","Peach","Banana","cat"};
-		Arrays.sort(c);
-		MultipleMax.testMaximum(c);
+		MultipleMax.allDataPrint(9,10,11,20);
+		MultipleMax.allDataPrint(9.50,10.20,11.70,2.5);
+		MultipleMax.allDataPrint("Apple","Peach","Banana","cat");
 
-		Float[] f = {23.34f,9.50f,11.70f,10.20f};
-		Arrays.sort(f);
-		MultipleMax.testMaximum(f);
 	}
 
 }
-
